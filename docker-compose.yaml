@@ -23,7 +23,7 @@ services:
         - ${MCPO_PORT:-8000}:8000
       environment:
         - MCP_SERVER_COMMAND=${MCP_SERVER_COMMAND}
-      command: uvx mcpo --port 8000 -- -y supergateway --sse ${N8N_MCP_SERVER_URL}
+      command: uvx mcpo --port 8000 -- npx -y supergateway --sse ${N8N_MCP_SERVER_URL}
       restart: unless-stopped
 
 volumes:
