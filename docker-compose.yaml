@@ -29,6 +29,16 @@ services:
       - host.docker.internal:host-gateway
     restart: unless-stopped
 
+  mcpo:
+      container_name: mcpo
+      ports:
+        - ${MCPO_PORT:-8000}:8000
+      environment:
+        - MCP_SERVER_COMMAND=${MCP_SERVER_COMMAND}
+      command: uvx mcpo --port 8000 -- ${MCP_SERVER_COMMAND}
+      restart: unless-stopped
+
 volumes:
   ollama: {}
   open-webui: {}
+  mcpo: {}
